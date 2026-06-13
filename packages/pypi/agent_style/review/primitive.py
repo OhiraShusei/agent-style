@@ -194,7 +194,7 @@ _CLASSIFICATION: dict[str, set[str]] = {
     "RULE-04": {"semantic"},
     "RULE-05": {"mechanical", "semantic"},
     "RULE-06": {"mechanical", "semantic"},
-    "RULE-07": {"structural"},
+    "RULE-07": {"structural", "semantic"},
     "RULE-08": {"semantic"},
     "RULE-09": {"structural"},
     "RULE-10": {"structural"},

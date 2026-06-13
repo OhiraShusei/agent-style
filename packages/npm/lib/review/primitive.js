@@ -16,7 +16,7 @@ const CLASSIFICATION = {
   'RULE-04': new Set(['semantic']),
   'RULE-05': new Set(['mechanical', 'semantic']),
   'RULE-06': new Set(['mechanical', 'semantic']),
-  'RULE-07': new Set(['structural']),
+  'RULE-07': new Set(['structural', 'semantic']),
   'RULE-08': new Set(['semantic']),
   'RULE-09': new Set(['structural']),
   'RULE-10': new Set(['structural']),

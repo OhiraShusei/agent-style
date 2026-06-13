@@ -15,6 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { audit } = require('../lib/review');
+const { CLASSIFICATION } = require('../lib/review/primitive');
 
 const FIXTURES_DIR = path.resolve(
   __dirname,
@@ -120,6 +121,13 @@ test('--mechanical-only excludes structural and semantic', () => {
     leaks.length,
     0,
     `mechanical-only leaked non-mechanical violations: ${leaks.map((l) => l.rule).join(', ')}`
+  );
+});
+
+test('RULE-07 classification includes structural and semantic', () => {
+  assert.deepEqual(
+    [...CLASSIFICATION['RULE-07']].sort(),
+    ['semantic', 'structural']
   );
 });
 

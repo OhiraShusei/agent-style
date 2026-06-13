@@ -245,7 +245,7 @@ LLMs reproduce the corporate-technical register disproportionately because it is
 
 ### Claims and Calibration
 
-#### RULE-07: Use Affirmative Form for Affirmative Claims ("Trivial" Instead of "Not Important")
+#### RULE-07: Put Statements in Positive Form (Affirmative Words; No "X, Not Y" Antithesis)
 
 - **source**: Strunk & White §II.15: *"Put statements in positive form."*
 - **agent-instruction evidence**: Zhang et al. 2026 supports negative phrasing for anti-pattern directives in coding-agent instruction files; RULE-07 carries a positive directive because the target is a constructive placement (choose the affirmative word) rather than an anti-pattern to flag. Bohr 2025 supports pairing directives with examples for stronger initial style control over a paired two-turn code-generation workflow.
@@ -256,6 +256,8 @@ LLMs reproduce the corporate-technical register disproportionately because it is
 ##### Directive
 
 Replace "not important" with "trivial"; "did not remember" with "forgot"; "did not pay attention to" with "ignored"; "is not often" with "rarely"; "is not large" with "small"; "does not succeed" with "fails". Prefer one affirmative word over two negating words. When the sentence genuinely negates something (the proposition is true only in the negative), a single "not" is fine and necessary. The rule targets two-word negations that have a one-word affirmative equivalent. The operational test: can I replace "not X" with a single positive word that names the state directly? If yes, do so.
+
+The same principle applies at the clause level. Do not stage a claim as a contrast against a negated foil for emphasis: "X, not Y", "It is not X, it is Y", "Not just X, but Y", "This is not about X; it is about Y". State the claim directly. Keep the negation only when the rejected alternative is specific and ruling it out informs the reader ("The bottleneck is disk I/O, not CPU"). Drop the foil when it is vague, self-evident, or a strawman ("not a hope", "not the last", "not just a tool"), where the "not Y" tail is cadence, not content.
 
 ##### BAD → GOOD
 
@@ -277,9 +279,20 @@ Replace "not important" with "trivial"; "did not remember" with "forgot"; "did n
 - BAD: `The cache is not frequently invalidated.`
 - GOOD: `The cache is rarely invalidated, roughly once per deploy.`
 
+- BAD (antithesis, section heading): `Failure Is Committed at the First Token, Not the Last`
+- GOOD (antithesis, section heading): `The First Token Commits the Failure`
+
+- BAD (antithesis, proposal): `The signal is our prior art, not a hope.`
+- GOOD (antithesis, proposal): `Our prior art is the signal: three shipped systems and two prior awards on this exact problem.`
+
+- BAD (antithesis, release note): `This is not just a bug fix, it is a full rewrite of the export pipeline.`
+- GOOD (antithesis, release note): `This release rewrites the CSV export pipeline; the previous version only patched the newline crash.`
+
 ##### Rationale for AI Agent
 
 Double-negation phrasing ("not insignificant", "not uncommon", "not unlike") pervades academic and journalistic prose, and LLMs absorb the pattern from training. The cognitive cost is real: the reader holds "not" in working memory, parses the negated adjective, then negates again to recover the intended meaning. For simple affirmative states, this is wasted work. The rule does not ban honest negation; when something is genuinely absent, "no X" or "not X" is correct. The rule bans avoidable compound negation where a positive-form word already names the state. A downstream concern for AI-generated prose: double-negation also defeats tone and sentiment detection in downstream tooling, so in contexts where the text feeds another model (summarization, classification, moderation), positive form is operationally safer.
+
+The clause-level form of this rule targets antithesis ("X, not Y", "not just X, but Y", "it is not X, it is Y"), a high-reward pattern in the persuasive and essayistic corpora LLMs train on (op-eds, manifestos, marketing copy). It reads as balanced and quotable, so models reach for it in headings, abstracts, and openers. The construction invents an alternative only to reject it; when that alternative is vague or a strawman, the "not Y" tail adds rhythm without information, and a careful reader discounts it as AI register. The fix matches the word-level case: state the affirmative claim directly, and keep the contrast only when ruling out a specific alternative tells the reader something new.
 
 #### RULE-08: Do Not Linguistically Overstate or Understate Claims Relative to the Evidence
 

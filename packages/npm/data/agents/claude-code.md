@@ -25,7 +25,7 @@ Canonical (Strunk & White 1959, Orwell 1946, Pinker 2014, Gopen & Swan 1990):
 - RULE-04: Needless words.
 - RULE-05: Dying metaphors.
 - RULE-06: Avoidable jargon.
-- RULE-07: Affirmative form.
+- RULE-07: Positive form; no "X, not Y" antithesis.
 - RULE-08: Claim calibration.
 - RULE-09: Parallel structure.
 - RULE-10: Related words together.

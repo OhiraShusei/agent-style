@@ -12,7 +12,7 @@ Reference for the `style-review` skill. Detection approach per rule; bucket dete
 | RULE-04 needless words | semantic | LLM judge with Orwell Rule 3 + S&W §II.17 examples | host model judgment |
 | RULE-05 dying metaphors / clichés | mechanical + semantic | Regex over ~37 cliché phrases from Orwell 1946 + RULE-05 BAD examples; LLM judge for novel clichés | case-insensitive phrase match |
 | RULE-06 avoidable jargon | mechanical + semantic | Regex over the 45-word banned AI-tell list + Orwell Rule 5 jargon words | word-boundary match, case-insensitive |
-| RULE-07 positive form | structural | Detect `not <adj>` constructions with a positive equivalent | deferred to v0.3.0; `status: skipped` in v0.2.0 |
+| RULE-07 positive form + antithesis | structural + semantic | Detect `not <adj>` constructions with a positive equivalent; clause-level "X, not Y" / "not just X, but Y" antithesis via semantic judge | mechanical part deferred (`status: skipped`); antithesis via host model judgment |
 | RULE-08 calibrated claims | semantic | LLM judge: "which verbs overstate the evidence actually presented?" | host model judgment |
 | RULE-09 parallel structure | structural | Heuristic on adjacent list items / coordinate clauses | deferred to v0.3.0; `status: skipped` in v0.2.0 |
 | RULE-10 keep related words together | structural | Subject-verb distance heuristic | deferred to v0.3.0; `status: skipped` in v0.2.0 |

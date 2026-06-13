@@ -10,7 +10,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Semantic Versi
 
 ## [Unreleased]
 
-*No unreleased changes queued.*
+### Changed
+
+- **RULE-07 broadened to cover antithesis.** RULE-07 (positive form) now also covers the clause-level "X, not Y" / "not just X, but Y" / "it is not X, it is Y" antithesis construction, a common LLM tell. Added a directive paragraph, three BAD -> GOOD pairs, and a rationale paragraph. No new rule; the count stays 21 (RULE-01..12 canonical + RULE-A..I field-observed). Generated rule-pack files refreshed via build-compact.py.
 
 ## [0.3.5] — 2026-04-29
 

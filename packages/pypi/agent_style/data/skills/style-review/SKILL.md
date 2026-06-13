@@ -20,7 +20,7 @@ Mode is inferred from argument count. No flags.
 ## Workflow (single file)
 
 1. **Deterministic audit.** Shell out to `agent-style review --audit-only FILE`. Capture the canonical JSON. Mechanical rules (RULE-B, D, G, I, 12, 05, 06) and structural rules (RULE-A, C, E) return concrete violations with line numbers and excerpts.
-2. **Semantic audit.** For each rule marked `status: "skipped"` with detector `semantic` (RULE-01, 03, 04, 08, 11, F, H), run a per-rule judgment using the rule's directive plus its BAD/GOOD examples from `.agent-style/RULES.md` as the judge prompt. Parse the host model's response into the same violation schema.
+2. **Semantic audit.** For each rule marked `status: "skipped"` with detector `semantic` (RULE-01, 03, 04, 07, 08, 11, F, H), run a per-rule judgment using the rule's directive plus its BAD/GOOD examples from `.agent-style/RULES.md` as the judge prompt. Parse the host model's response into the same violation schema.
 3. **Merge.** Combine deterministic + semantic rule results into the full scorecard.
 4. **Report.** Print the scorecard: per rule, count + first 3 violations. If total is zero, report "no violations" and exit.
 5. **Ask.** "Produce a polished draft at FILE.reviewed.md?" Wait for the user's yes/no.
@@ -54,4 +54,4 @@ The revision prompt enforces these in its template (see `references/revision-pro
 
 When asked "is style-review active?", reply on one line using this exact format:
 
-`style-review active: audit 21 rules (deterministic: RULE-B, D, G, I, 12, 05, 06, A, C, E; semantic via host: RULE-01, 03, 04, 08, 11, F, H); workflow at skills/style-review/SKILL.md.`
+`style-review active: audit 21 rules (deterministic: RULE-B, D, G, I, 12, 05, 06, A, C, E; semantic via host: RULE-01, 03, 04, 07, 08, 11, F, H); workflow at skills/style-review/SKILL.md.`

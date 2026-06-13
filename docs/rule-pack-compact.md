@@ -96,11 +96,13 @@ Do not use "leverage" where "use" fits. Do not use "utilize" where "use" fits. D
 
 ### Claims and Calibration
 
-#### RULE-07: Use Affirmative Form for Affirmative Claims ("Trivial" Instead of "Not Important")
+#### RULE-07: Put Statements in Positive Form (Affirmative Words; No "X, Not Y" Antithesis)
 
 ##### Directive
 
 Replace "not important" with "trivial"; "did not remember" with "forgot"; "did not pay attention to" with "ignored"; "is not often" with "rarely"; "is not large" with "small"; "does not succeed" with "fails". Prefer one affirmative word over two negating words. When the sentence genuinely negates something (the proposition is true only in the negative), a single "not" is fine and necessary. The rule targets two-word negations that have a one-word affirmative equivalent. The operational test: can I replace "not X" with a single positive word that names the state directly? If yes, do so.
+
+The same principle applies at the clause level. Do not stage a claim as a contrast against a negated foil for emphasis: "X, not Y", "It is not X, it is Y", "Not just X, but Y", "This is not about X; it is about Y". State the claim directly. Keep the negation only when the rejected alternative is specific and ruling it out informs the reader ("The bottleneck is disk I/O, not CPU"). Drop the foil when it is vague, self-evident, or a strawman ("not a hope", "not the last", "not just a tool"), where the "not Y" tail is cadence, not content.
 
 ##### BAD → GOOD
 
