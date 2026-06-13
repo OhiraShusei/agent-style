@@ -46,7 +46,7 @@ grep -nE "AGENT_STYLE_REF=v[0-9]+\.[0-9]+\.[0-9]+" README.md
 #    Registries (PyPI, npm) are immutable post-publish, so a dead link merged into the
 #    published wheel/tarball cannot be revoked — only fix-forwarded in the next release.
 #    v0.3.4 shipped a cosmetic dead-link bug because this step was not part of the
-#    pre-release checklist; v0.3.5 fix-forwarded but the v0.3.4 registry artifact retains the
+#    pre-release checklist; v0.3.6 fix-forwarded but the v0.3.4 registry artifact retains the
 #    bug. This check runs locally and exits non-zero on any dead link.
 fail=0
 for f in $(git ls-files '*.md'); do
@@ -166,7 +166,7 @@ If either namespace is taken, halt.
 
 ```bash
 # Stage and review the entire release scope. The earlier "git add packages/
-# CHANGELOG.md" form repeatedly under-staged release content (e.g. v0.3.5 had
+# CHANGELOG.md" form repeatedly under-staged release content (e.g. v0.3.6 had
 # .github/mlc-config.json, RELEASING.md, TODO.md, README.md, agent-handshake
 # bumps in agents/* and packages/*/data/agents/*, hero.html, and
 # scripts/verify-fresh-install.py — all of which would have been missed by

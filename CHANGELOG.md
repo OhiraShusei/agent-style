@@ -8,11 +8,20 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Semantic Versi
 
 > **Version distribution (as of 2026-04-28).** PyPI and npm now distribute **0.3.4**. Git tags **v0.3.2** and **v0.3.3** remain *docs-only* additions (`docs/rule-pack.md` published as the `anywhere-agents` rule-pack pin target, and README Use option 3 cross-reference); they are intentionally NOT a PyPI / npm publish target, and the package version files skipped them. v0.3.4 is the first registry publish since v0.3.1. Future docs-only tags should follow the same convention; the next package release should bump to v0.3.5 or later, never reuse a docs-only ref. See `RELEASING.md` for the docs-only tag convention.
 
-## [Unreleased]
+## [0.3.6] — 2026-06-13
 
 ### Changed
 
-- **RULE-07 broadened to cover antithesis.** RULE-07 (positive form) now also covers the clause-level "X, not Y" / "not just X, but Y" / "it is not X, it is Y" antithesis construction, a common LLM tell. Added a directive paragraph, three BAD -> GOOD pairs, and a rationale paragraph. No new rule; the count stays 21 (RULE-01..12 canonical + RULE-A..I field-observed). Generated rule-pack files refreshed via build-compact.py.
+- **RULE-07 broadened to cover antithesis.** RULE-07 (positive form) now also covers the clause-level "X, not Y" / "not just X, but Y" / "it is not X, it is Y" antithesis construction, a common LLM tell. Added a directive paragraph, three BAD → GOOD pairs, and a rationale paragraph. No new rule; the count stays 21 (RULE-01..12 canonical + RULE-A..I field-observed). Generated rule-pack files refreshed via build-compact.py.
+- **RULE-07 enforcement is now host-judged.** The review engine reclassifies RULE-07 from structural-only to `{structural, semantic}` in both the Python (`agent_style/review/primitive.py`) and Node (`lib/review/primitive.js`) detectors. Under `agent-style review --audit-only` the rule reports as `skipped` so a host model judges the clause-level antithesis that a deterministic regex cannot reliably detect. The `style-review` skill adds RULE-07 to its semantic host-pass list (now RULE-01, 03, 04, 07, 08, 11, F, H). Agent snippets across every adapter move from "Affirmative form" wording to "Positive form; no 'X, not Y' antithesis."
+
+### Added
+
+- **Regression tests for the RULE-07 classification.** `packages/pypi/tests/test_rule07_classification.py` and a new case in `packages/npm/test/review.test.js` assert that RULE-07 carries `{structural, semantic}` in both engines and that the `rule-detectors.md` RULE-07 row stays byte-identical across the source tree and the bundled PyPI and npm copies.
+
+### Compatibility
+
+- **anywhere-agents pin path.** Consumers that pin the agent-style pack by `ref` pick up the RULE-07 broadening by bumping to `ref: v0.3.6`. The compact pack body (`docs/rule-pack-compact.md`) includes the new RULE-07 directive and its first BAD → GOOD pair; full content lives in `RULES.md` / `docs/rule-pack.md`.
 
 ## [0.3.5] — 2026-04-29
 
@@ -191,7 +200,9 @@ The v0.3.0 cycle turns the bench from a narrow, API-billable CI job into a full-
 
 ---
 
-[Unreleased]: https://github.com/yzhao062/agent-style/compare/v0.3.2...HEAD
+[0.3.6]: https://github.com/yzhao062/agent-style/compare/v0.3.5...v0.3.6
+[0.3.5]: https://github.com/yzhao062/agent-style/compare/v0.3.4...v0.3.5
+[0.3.4]: https://github.com/yzhao062/agent-style/compare/v0.3.3...v0.3.4
 [0.3.2]: https://github.com/yzhao062/agent-style/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/yzhao062/agent-style/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/yzhao062/agent-style/compare/v0.2.0...v0.3.0
